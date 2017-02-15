@@ -44,16 +44,25 @@ longer tired.
 4. Going to the Saloon to Drink
   1. When he enters this state, if he isn't already at the Saloon, his location will be changed to the Saloon, and he 
 will declare that this is where he is heading.
-  2. At the Saloon, his fatigue will increase by one. His thirst will decrease by three in order to compensate for the 
-fact that his thirst is increased by one everytime his status is updated, giving him aq net decrease of two thirst 
-everytime he drinks. When he does this he declares he's having a drink.
+  2. When the execute function runs, it checks whether or not the miner has any gold carried; if he does not, the
+  bartender calls the sheriff and the miner's status is changed to 'arrested' and he enters the jail state.
+  At the Saloon, his fatigue will increase by one. His thirst will decrease by three in order to compensate for the
+fact that his thirst is increased by one every time his status is updated, giving him a net decrease of two thirst
+every time he drinks. When he does this he declares he's having a drink.
   3. If he is still thirsty after drinking he will have another drink.
   4. If his thirst is quenched and his pockets are full, he will change his state to Visiting the Bank.
   5. If his thirst is quenched and his pockets are not full, but he is tired, he will go home and rest.
   6. If his thirst is quenched and his pockets are not full and he is not tired, he will change his state to digging 
 for gold.
 
-5. Go Shopping
+5. Jail
+  1. When he enters jail, the miner's location is changed to 'jail', and he makes a comment.
+  2. The miner's thirst and fatigue are reset to zero so that he starts fresh when he leaves jail.
+  3. A counter is set to zero and runs through 3 loops, with the miner making a comment each time.
+  4. Once the counter has hit 3, the miner exits the jail state and enters the digging for gold state.
+  5. The jail counter is reset to zero, and the miner makes a comment.
+
+6. Go Shopping
   1. When he enters the state he declares he is going shopping for a new pickax and the miner's location changes from
   it's old value to be 'shop' instead.
   2. While he is shopping his fatigue will increase and he will then proceed to choose between buying a normal pickax
